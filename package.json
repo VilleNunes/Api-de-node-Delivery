@@ -2,9 +2,14 @@
   "name": "delivery",
   "version": "1.0.0",
   "main": "index.js",
+  "engines": {
+    "node": ">= 18"
+  },
   "scripts": {
     "dev": "tsx watch --env-file=.env src/server.ts",
-    "test:dev":"npx jest --watchAll  src/test/"
+    "test:dev": "npx jest --watchAll  src/test/",
+    "build":"tsup src --out-dir build",
+    "start": "node --env-file=.env build/server.js"
   },
   "keywords": [],
   "author": "",
@@ -20,6 +25,7 @@
     "postgresql": "^0.0.1",
     "supertest": "^7.0.0",
     "ts-node": "^10.9.2",
+    "tsup": "^8.3.5",
     "zod": "^3.24.1"
   },
   "devDependencies": {
